@@ -6,9 +6,12 @@ class LinkedList {
     }
 
     append(value) {
+        let node = this.headNode;
         const newNode = new Node(value);
-        newNode.nextNode = this.headNode;
-        this.headNode = newNode;
+
+        while (node.nextNode !== null)
+            node = node.nextNode;
+        node.nextNode = newNode;
     }
 
     prepend(value) {
