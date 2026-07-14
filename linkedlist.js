@@ -93,6 +93,21 @@ class LinkedList {
             return false;
         return true;
     }
+
+    findIndex(value) {
+        let node = this.headNode;
+        let i = 0;
+        
+        if (!node)
+            return -1;
+        while(node !== null && node.value !== value) {
+            node = node.nextNode;
+            i++
+        }
+        if (!node)
+            return -1;
+        return i;
+    }
 }
 
 export { LinkedList };

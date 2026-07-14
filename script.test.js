@@ -75,3 +75,11 @@ test("Test contains method if it's true", () => {
 test("Test contains method if it's false", () => {
     expect(list.contains("Ten")).toBe(false);
 });
+
+test("Test findIndex method", () => {
+    expect(list.findIndex("Third")).toBe(2);
+});
+
+test("Test findIndex method if value not exist", () => {
+    expect(list.findIndex("Ten")).toBe(-1);
+});
