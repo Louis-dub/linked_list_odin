@@ -4,33 +4,45 @@ import { LinkedList  } from './linkedlist.js';
 const list = new LinkedList();
 const empty = new LinkedList();
 
-test("Prepend a node", () => {
+test("Test prepend method", () => {
     list.prepend("First");
     expect(list.headNode.value).toBe("First");
 });
 
-test("Prepend second node", () => {
+test("Test prepend method with a big list", () => {
     list.prepend("Second");
     expect(list.headNode.value).toBe("Second");
 })
 
-test("Append Node and return his value", () => {
+test("Test append and tail method", () => {
     list.append("last");
     expect(list.tail()).toBe("last");
 })
 
-test("Get the list size", () => {
+test("Test size method", () => {
     expect(list.size()).toBe(3);
 });
 
-test("Return the list head", () => {
+test("Test head method", () => {
     expect(list.head()).toBe("Second");
 });
 
-test("Return the head of an empty list", () => {
+test("Test head metho with an empty list", () => {
     expect(empty.head()).toBe(undefined);
 });
 
-test("Return the tail of an empty list", () => {
+test("Test tail method with an empty list", () => {
     expect(empty.tail()).toBe(undefined);
 })
+
+test("Test at method", () => {
+    expect(list.at(1)).toBe("First");
+});
+
+test("Test at metho with a no exist element", () => {
+    expect(list.at(5)).toBe(undefined);
+});
+
+test("Test at metho with an empty list", () => {
+    expect(empty.at(2)).toBe(undefined);
+});

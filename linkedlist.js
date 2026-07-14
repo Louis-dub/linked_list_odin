@@ -46,6 +46,19 @@ class LinkedList {
             node = node.nextNode;
         return node.value;
     }
+
+    at(index) {
+        let node = this.headNode;
+        let i = 0;
+
+        while(node !== null && i !== index) {
+            node = node.nextNode;
+            i++;
+        }
+        if (node === null)
+            return undefined;
+        return node.value;
+    }
 }
 
 export { LinkedList };
