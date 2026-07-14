@@ -9,6 +9,7 @@ function createNewList() {
     list.append("First");
     list.append("Second");
     list.append("Third");
+    list.append("Four")
     list.append("Five");
     list.append("Six")
     list.append("Seven");
@@ -65,4 +66,12 @@ test("Test pop method", () => {
 
 test("Test pop method with an empty list", () => {
     expect(empty.pop()).toBe(undefined);
+});
+
+test("Test contains method if it's true", () => {
+    expect(list.contains("Four")).toBe(true);
+});
+
+test("Test contains method if it's false", () => {
+    expect(list.contains("Ten")).toBe(false);
 });
