@@ -31,6 +31,12 @@ class LinkedList {
         return size;
     }
 
+    head() {
+        if (!this.headNode)
+            return undefined;
+        return this.headNode.value;
+    }
+
     tail() {
         let node = this.headNode;
 
