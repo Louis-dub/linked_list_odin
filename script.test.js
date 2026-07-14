@@ -9,9 +9,8 @@ function createNewList() {
     list.append("First");
     list.append("Second");
     list.append("Third");
-    list.append("Four")
     list.append("Five");
-    list.append("Six")
+    list.append("Six");
     list.append("Seven");
 }
 
@@ -69,7 +68,7 @@ test("Test pop method with an empty list", () => {
 });
 
 test("Test contains method if it's true", () => {
-    expect(list.contains("Four")).toBe(true);
+    expect(list.contains("Five")).toBe(true);
 });
 
 test("Test contains method if it's false", () => {
@@ -85,17 +84,25 @@ test("Test findIndex method if value not exist", () => {
 });
 
 test("Test toString method", () => {
-    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Third ) -> ( Four ) -> ( Five ) -> ( Six ) -> null");
+    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Third ) -> ( Five ) -> ( Six ) -> null");
 });
 
 test("Test toString method with an empty list", () => {
     expect(empty.toString()).toBe("null");
 });
 
+test("Test insertAt method", () => {
+    list.insertAt(3, "Four", "Five");
+    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Third ) -> ( Four ) -> ( Five ) -> ( Five ) -> ( Six ) -> null");
+});
+
+test("Test insertAt method with index out of bounds", () => {
+    expect(() => list.insertAt(999)).toThrow(new RangeError("Index out of bounds"));
+});
 
 test("Test removeAt method", () => {
-    list.removeAt(2);
-    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Four ) -> ( Five ) -> ( Six ) -> null");
+    list.removeAt(5);
+    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Third ) -> ( Four ) -> ( Five ) -> ( Six ) -> null");
 });
 
 test("Test removeAt method with index out of bounds", () => {
