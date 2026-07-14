@@ -91,3 +91,13 @@ test("Test toString method", () => {
 test("Test toString method with an empty list", () => {
     expect(empty.toString()).toBe("null");
 });
+
+
+test("Test removeAt method", () => {
+    list.removeAt(2);
+    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Four ) -> ( Five ) -> ( Six ) -> null");
+});
+
+test("Test removeAt method with index out of bounds", () => {
+    expect(() => list.removeAt(999)).toThrow(new RangeError("Index out of bounds"));
+});

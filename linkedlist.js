@@ -122,6 +122,24 @@ class LinkedList {
         arr.push("null");
         return arr.join(" -> ");
     }
+
+    removeAt(index) {
+        if (index < 0 || !this.headNode)
+            throw new RangeError("Index out of bounds");
+
+        let node = this.headNode;
+        let nextNode = this.headNode;
+        let i = 0;
+
+        while(nextNode && i < index) {
+            i++;
+            node = nextNode;
+            nextNode = node.nextNode;
+        }
+        if (!nextNode)
+            throw new RangeError("Index out of bounds");
+        node.nextNode = nextNode.nextNode;
+    }
 }
 
 export { LinkedList };
