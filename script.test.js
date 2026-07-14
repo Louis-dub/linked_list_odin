@@ -83,3 +83,11 @@ test("Test findIndex method", () => {
 test("Test findIndex method if value not exist", () => {
     expect(list.findIndex("Ten")).toBe(-1);
 });
+
+test("Test toString method", () => {
+    expect(list.toString()).toBe("( First ) -> ( Second ) -> ( Third ) -> ( Four ) -> ( Five ) -> ( Six ) -> null");
+});
+
+test("Test toString method with an empty list", () => {
+    expect(empty.toString()).toBe("null");
+});

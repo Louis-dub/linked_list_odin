@@ -13,7 +13,7 @@ class LinkedList {
             this.headNode = newNode;
             return;
         }
-        while (node.nextNode !== null)
+        while (node.nextNode)
             node = node.nextNode;
         node.nextNode = newNode;
     }
@@ -28,7 +28,7 @@ class LinkedList {
         let size = 0;
         let node = this.headNode;
 
-        while (node !== null) {
+        while (node) {
             size++;
             node = node.nextNode;
         }
@@ -46,7 +46,7 @@ class LinkedList {
 
         if (node === null)
             return undefined;
-        while (node.nextNode !== null)
+        while (node.nextNode)
             node = node.nextNode;
         return node.value;
     }
@@ -55,7 +55,7 @@ class LinkedList {
         let node = this.headNode;
         let i = 0;
 
-        while(node !== null && i !== index) {
+        while(node && i !== index) {
             node = node.nextNode;
             i++;
         }
@@ -87,7 +87,7 @@ class LinkedList {
         
         if (!node)
             return false;
-        while(node !== null && node.value !== value)
+        while(node && node.value !== value)
             node = node.nextNode;
         if (!node)
             return false;
@@ -100,13 +100,27 @@ class LinkedList {
         
         if (!node)
             return -1;
-        while(node !== null && node.value !== value) {
+        while(node && node.value !== value) {
             node = node.nextNode;
             i++
         }
         if (!node)
             return -1;
         return i;
+    }
+
+    toString() {
+        let node = this.headNode;
+
+        if (!node)
+            return "null";
+        const arr = [];
+        while(node) {
+            arr.push(`( ${node.value} )`);
+            node = node.nextNode;
+        }
+        arr.push("null");
+        return arr.join(" -> ");
     }
 }
 
