@@ -9,6 +9,10 @@ class LinkedList {
         let node = this.headNode;
         const newNode = new Node(value);
 
+        if (!node) {
+            this.headNode = newNode;
+            return;
+        }
         while (node.nextNode !== null)
             node = node.nextNode;
         node.nextNode = newNode;
@@ -58,6 +62,24 @@ class LinkedList {
         if (node === null)
             return undefined;
         return node.value;
+    }
+
+    pop() {
+        let node = this.headNode;
+
+        if (!node)
+            return undefined;
+        let nextNode = node.nextNode;
+        if (!nextNode) {
+            this.headNode = null;
+            return node.value;
+        }
+        while (nextNode.nextNode) {
+            node = nextNode;
+            nextNode = node.nextNode;
+        }
+        node.nextNode = null;
+        return nextNode.value;
     }
 }
 

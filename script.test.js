@@ -4,6 +4,16 @@ import { LinkedList  } from './linkedlist.js';
 const list = new LinkedList();
 const empty = new LinkedList();
 
+function createNewList() {
+    list.headNode = null;
+    list.append("First");
+    list.append("Second");
+    list.append("Third");
+    list.append("Five");
+    list.append("Six")
+    list.append("Seven");
+}
+
 test("Test prepend method", () => {
     list.prepend("First");
     expect(list.headNode.value).toBe("First");
@@ -45,4 +55,14 @@ test("Test at metho with a no exist element", () => {
 
 test("Test at metho with an empty list", () => {
     expect(empty.at(2)).toBe(undefined);
+});
+
+test("Test pop method", () => {
+    createNewList();
+    expect(list.pop()).toBe("Seven");
+    expect(list.tail()).toBe("Six");
+});
+
+test("Test pop method with an empty list", () => {
+    expect(empty.pop()).toBe(undefined);
 });
