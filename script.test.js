@@ -17,3 +17,7 @@ test("Append Node and return his value", () => {
     list.append("last");
     expect(list.tail()).toBe("last");
 })
+
+test("Get the list size", () => {
+    expect(list.size()).toBe(3);
+});
